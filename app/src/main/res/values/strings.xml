@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Test App</string>
+    <string name="all_yes">YES</string>
+    <string name="all_no">NO</string>
+    <string name="all_cancel">CANCEL</string>
+    <string name="error_title">Error</string>
+    <string name="all_ok">OK</string>
+</resources>
