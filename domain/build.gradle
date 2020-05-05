@@ -1,0 +1,11 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.extensions.ext.domainDependencies
+    implementation rootProject.extensions.ext.domainTestDependencies
+}
+
+sourceCompatibility = rootProject.extensions.ext.java
+targetCompatibility = rootProject.extensions.ext.java
+

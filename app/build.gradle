@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion configs.compileSdkVersion
+    buildToolsVersion configs.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.lingdtkhe.testapp"
+        minSdkVersion configs.minSdkVersion
+        targetSdkVersion configs.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility rootProject.extensions.ext.java
+        targetCompatibility rootProject.extensions.ext.java
+    }
+    kotlinOptions {
+        jvmTarget = rootProject.extensions.ext.java
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+    implementation project(":data")
+
+    implementation rootProject.ext.presentationDependencies
+    implementation rootProject.ext.presentationOtherDependencies
+
+    androidTestImplementation rootProject.ext.presentationAndroidTestDependencies
+    testImplementation rootProject.ext.presentationTestDependencies
+    kapt rootProject.ext.presentationKaptDependencies
+}

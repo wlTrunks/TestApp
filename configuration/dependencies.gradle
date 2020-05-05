@@ -1,0 +1,148 @@
+ext {
+//  JAVA
+    java = JavaVersion.VERSION_1_8
+//  kotlin jdk
+    kotlinJdk = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.ext.kotlin_version"
+// android x
+    android_x_core = '1.2.0'
+    android_x_activity = '1.0.0'
+    android_x_appcompat = '1.1.0'
+    android_x_fragments = '1.2.4'
+    android_x_annotations = '1.1.0'
+    android_x_material = '1.2.0-alpha06'
+    constraint_layout = '2.0.0-beta4'
+    android_x_legacy = '1.0.0'
+    lifecycle = '2.2.0'
+
+    core = "androidx.core:core-ktx:$android_x_core"
+    appCompat = "androidx.appcompat:appcompat:$android_x_appcompat"
+    activity = "androidx.activity:activity-ktx:$android_x_activity"
+    fragment = "androidx.fragment:fragment-ktx:$android_x_fragments"
+    annotaion = "androidx.annotation:annotation:$android_x_annotations"
+    material = "com.google.android.material:material:$android_x_material"
+    constraint = "androidx.constraintlayout:constraintlayout:$constraint_layout"
+    legacy = "androidx.legacy:legacy-support-v4:$android_x_legacy"
+    lifecycle_ext = "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    lifecycle_vm = "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle"
+//  coroutines
+    coroutinesVersion = '1.3.5'
+    coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+// koin
+    koin_version = '2.1.5'
+    koin_core = "org.koin:koin-core:$koin_version"
+    koin_core_ext = "org.koin:koin-core-ext:$koin_version"
+    koin_core_test = "org.koin:koin-test:$koin_version"
+    koin_android = "org.koin:koin-android:$koin_version"
+    koin_android_scope = "org.koin:koin-androidx-scope:$koin_version"
+    koin_android_viewmodel = "org.koin:koin-androidx-viewmodel:$koin_version"
+    koin_android_fragment = "org.koin:koin-androidx-fragment:$koin_version"
+    koin_android_ext = "org.koin:koin-androidx-ext:$koin_version"
+// Test
+    junit = 'junit:junit:4.12'
+    runner = 'androidx.test:runner:1.2.0'
+    mockito_core = 'org.mockito:mockito-core:2.28.2'
+    arch = 'android.arch.core:core-testing:1.1.1'
+    test_core = "androidx.test:core:1.1.0"
+    //AndroidTestDependencies
+    coroutines_core = 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.3'
+    espresso_core = 'androidx.test.espresso:espresso-core:3.2.0'
+    fragment_test = "androidx.fragment:fragment-testing:$android_x_fragments"
+// GSON
+    gson = 'com.google.code.gson:gson:2.8.6'
+// Retrofit
+    retrofit = '2.7.1'
+    retrofit2 = "com.squareup.retrofit2:retrofit:$retrofit"
+    retrofit2_gson = "com.squareup.retrofit2:converter-gson:$retrofit"
+//OkHttp
+    ok_http = '3.14.4'
+    ok_http3 = "com.squareup.okhttp3:okhttp:$ok_http"
+    ok_http3_interceptor = "com.squareup.okhttp3:logging-interceptor:$ok_http"
+// Glide
+    glide_v = '4.10.0'
+    glide = "com.github.bumptech.glide:glide:$glide_v"
+    // kapt
+    glide_compiler = "com.github.bumptech.glide:compiler:$glide_v"
+//Navigation components
+    navigation = '2.3.0-alpha03'
+    navigation_fragment = "androidx.navigation:navigation-fragment-ktx:$navigation"
+    navigation_ui = "androidx.navigation:navigation-ui-ktx:$navigation"
+// Multidex
+    multidex = 'com.android.support:multidex:1.0.3'
+//  Presentation
+    presentationDependencies = [
+            kotlinJdk,
+            core,
+            appCompat,
+            activity,
+            fragment,
+            annotaion,
+            material,
+            constraint,
+            legacy,
+            lifecycle_ext,
+            lifecycle_vm,
+            coroutinesAndroid,
+            coroutinesCore,
+            navigation_fragment,
+            navigation_ui,
+            coroutinesTest
+    ]
+    presentationOtherDependencies = [
+            koin_android,
+            koin_android_viewmodel,
+            koin_android_fragment,
+            koin_android_ext,
+            glide
+    ]
+    presentationKaptDependencies = [
+            glide_compiler
+    ]
+    presentationTestDependencies = [
+            junit,
+            coroutines_core,
+            mockito_core,
+            arch
+    ]
+    presentationAndroidTestDependencies = [
+            runner,
+            espresso_core,
+            coroutinesTest,
+            test_core
+    ]
+
+//  Domain
+    domainDependencies = [
+            kotlinJdk,
+            core,
+            coroutinesCore,
+            koin_core,
+            koin_core_ext
+    ]
+    domainTestDependencies = [
+            junit,
+            coroutines_core,
+            mockito_core,
+            arch,
+            coroutinesTest
+    ]
+// Data
+    dataDependencies = [
+            kotlinJdk,
+            coroutinesCore,
+            retrofit2,
+            retrofit2_gson,
+            ok_http3,
+            ok_http3_interceptor,
+            gson,
+            koin_core,
+            koin_core_ext
+    ]
+    dataTestDependencies = [
+            junit,
+            coroutines_core,
+            mockito_core,
+            arch
+    ]
+}
