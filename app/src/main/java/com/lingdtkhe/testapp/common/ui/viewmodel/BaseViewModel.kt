@@ -44,10 +44,10 @@ abstract class BaseViewModel : ViewModel(), LifecycleMethod {
      * Func run suspended coroutine in background
      * @param bg body func that needed to run on background
      */
-    protected fun runOnBackground(bg: suspend CoroutineScope.() -> Unit): Deferred<Unit> {
+    protected fun <T> runOnBackground(block: suspend CoroutineScope.() -> T): Deferred<T> {
         isLoading.set(true)
         return scope.async(Dispatchers.IO) {
-            bg()
+            block()
         }
     }
 

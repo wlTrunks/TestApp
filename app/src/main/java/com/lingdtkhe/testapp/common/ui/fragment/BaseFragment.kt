@@ -4,20 +4,31 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.databinding.library.baseAdapters.BR
 import androidx.fragment.app.Fragment
-import com.lingdtkhe.testapp.common.ui.ViewInit
 import com.lingdtkhe.testapp.common.ui.viewmodel.BaseViewModel
 
-abstract class BaseFragment<T : ViewDataBinding> : Fragment(), ViewInit<T> {
+abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
+
+    /**
+     * @return layout res
+     */
+    @LayoutRes
+    protected abstract fun createLayout(): Int
+
+    /**
+     * Initialize all view related task
+     */
+    protected abstract fun initViews()
 
     protected abstract val viewModel: BaseViewModel
 
-    lateinit var binding: T
+    protected lateinit var binding: T
 
-    override fun getBindingVariable(): Int = BR.viewModel
+    private fun getBindingVariable(): Int = BR.viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
